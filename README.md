@@ -14,7 +14,7 @@ Each element shapes the overall impedance spectrum, directly impacting beam dyna
     impedance/wake, considering the realistic shape of the vacuum chamber.    
   - Collimators: Geometrical (CST) and RW (IW2D) contributions are considered.
     Approximation using a linear taper - Version 2023 of the collimation optics is considered.
-  - 10000 BPMs
-  - 10000 bellows
-  - 132 single-cell 400 MHz RF cavities
-  - 33 tapers
+  - 10000 BPMs (CST)
+  - 10000 bellows (CST)
+  - 132 single-cell 400 MHz RF cavities (CST)
+  - 33 tapers (CST)

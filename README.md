@@ -4,7 +4,7 @@ This repository contains the updated impedance and wake conttubutions from diffe
 
 ## Status (updated 29.04.2025)
 
-The impedance model represents the cumulative electromagnetic interaction between the beam and surrounding accelerator structures.
+The impedance model represents the cumulative electroomagnetic interaction between the beam and surrounding accelerator structures.
 
 Each element shapes the overall impedance spectrum, directly impacting beam dynamics and potentially leading to instabilities.
 

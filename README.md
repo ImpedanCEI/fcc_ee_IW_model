@@ -2,7 +2,7 @@
 
 This repository contains the updated impedance and wake conttubutions from different elements 
 
-## Status (updated 29.04.2025)
+## Status (updated 24.07.2025)
 
 The impedance model represents the cumulative electroomagnetic interaction between the beam and surrounding accelerator structures.
 

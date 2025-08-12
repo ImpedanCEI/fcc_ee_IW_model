@@ -56,6 +56,6 @@ fcc_ee_IW_model/
 └─ README.md
 ```
 
-# <img src="images/logo/fcc.png"  alt="CEI Logo" width="100"/> 
+# <img src="images/logo/fcc.png"  alt="CEI Logo" width="400"/> 
 
 

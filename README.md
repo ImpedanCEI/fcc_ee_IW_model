@@ -27,7 +27,7 @@ cd fcc_ee_IW_model
 
 ---
 
-## 📁 Contents check
+## 📁 Contents
 
 
 - **Elements** – All impedance wake model elements are collected here:

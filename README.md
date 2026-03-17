@@ -1,7 +1,3 @@
-# <img src="images/logo/cei_logo.png" alt="CEI Logo" width="50"/>  FCC-ee Impedance/Wake Model 
-
-*A repository containing all elements of the FCC-ee impedance wake model.*
-
 ---
 
 ## 🌀 Overview
@@ -25,7 +21,5 @@ Once cloned, navigate into the desired FCC-ee Impedance model folder, for instan
 cd FCCee_IW_2026
 ```
  inside each year folder, there are different versions, ordered by number for major releases (e.g. V0, V1 etc.) and by alphabetical letters for minor release (e.g. V0.a, V0.b etc.). 
-
-# <img src="images/logo/fcc.png"  alt="CEI Logo" width="250"/> 
 
 

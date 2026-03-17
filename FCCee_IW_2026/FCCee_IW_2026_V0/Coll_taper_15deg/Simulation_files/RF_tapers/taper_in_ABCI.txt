@@ -1,0 +1,19 @@
+ &FILE  ITEST=0  &END                                       
+ taper                                    
+ &MESH  DDR=.00015, DDZ=.00001 &END                                                
+                                                                  
+0.0 
+0.0 0.0                                                                             
+0.15 0
+.15 1.0
+.05 1.5 
+.05 2.5  
+0.0  2.5 
+0.0   0.0                                                               
+9999.  9999.  
+ &BEAM  SIG=0.0004, MROT=0 , ISIG=5 &END                                                 
+ &TIME  MT=5  &END                                                              
+ &WAKE  UBT=0.2, LNAPOLY=.T. &END                                                                    
+ &PLOT  LCAVIN=.T., LCAVUS=.T., LPLWL=.T. , LFFT=.T., LPATH=.T. &END                                  
+ &PRIN  LMATPR=.T.  &END                                                                                       
+STOP                                                                            

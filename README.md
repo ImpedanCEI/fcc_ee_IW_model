@@ -19,42 +19,12 @@ To get the repository:
 git clone https://github.com/ImpedanCEI/fcc_ee_IW_model
 ```
 
-Once cloned, navigate into the repository folder:
+Once cloned, navigate into the desired FCC-ee Impedance model folder, for instance for the 2026 one:
 
 ```bash
-cd fcc_ee_IW_model
+cd FCCee_IW_2026
 ```
-
----
-
-## 📁 Contents 
-
-
-- **Elements** – All impedance wake model elements are collected here:
-  - **BPMs** – 10,000 evaluated with CST.
-  - **RF cavities** – 132 single-cell 400 MHz RF cavities.
-  - **Bellows** – Bellows section models.
-  - **Collimators** – 41 collimators; Geometrical (CST) and RW (IW2D) contributions considered.
-  - **Beam pipe** – Circular copper cross-section (radius 30 mm) coated with a 150 nm NEG layer; evaluated with IW2D + numerical form factor for both driving and detuning impedance/wake, considering the realistic vacuum chamber shape.
-  - **Tapers** – 33 taper elements.
-- **Scripts** – Utilities for running and analyzing simulations.
-- **Images** – Contribution plots.
-- **Output** – Output files for your workflow.
-
-```
-fcc_ee_IW_model/
-├─ elements/
-│  ├─ BPMs/
-│  ├─ RF_cavity/
-│  ├─ bellows/
-│  ├─ collimators/
-│  ├─ pipe/
-│  └─ tapers/
-├─ script/
-├─ images/
-├─ output/
-└─ README.md
-```
+ inside each year folder, there are different versions, ordered by number for major releases (e.g. V0, V1 etc.) and by alphabetical letters for minor release (e.g. V0.a, V0.b etc.). 
 
 # <img src="images/logo/fcc.png"  alt="CEI Logo" width="250"/> 
 

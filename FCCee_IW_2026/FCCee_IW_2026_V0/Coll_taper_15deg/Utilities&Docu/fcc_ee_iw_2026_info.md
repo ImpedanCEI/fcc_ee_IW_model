@@ -128,13 +128,3 @@ Simulation files/RF_tapers/taper_in_ABCI.txt
 | Beam Pipe      | 90,658.5 m   | IW2D + CST             |
 | RF Tapers      | 66           | ABCI                   |
 
----
-
-## 🚀 GitHub Enhancements Applied
-
-1. **Collapsible sections** for each component to reduce scrolling.  
-2. **Badge indicators** for simulation coverage (CST, IW2D, ABCI).  
-3. **Clickable links** for external references like the PyWIT repo.  
-4. **Code blocks** for file paths for easy copy-paste.  
-5. Cleaned headings, spacing, and bullet points for improved readability.
-

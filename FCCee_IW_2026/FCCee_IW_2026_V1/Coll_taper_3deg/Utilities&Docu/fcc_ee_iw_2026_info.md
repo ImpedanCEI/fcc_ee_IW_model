@@ -7,6 +7,13 @@
 **Folder:** `FCC_ee_IW_2026_V1`   
 **Optics considered:** `LCCv106`
 
+**Important** : the recommended version of the wake file to be used for beam dynamics simulations is the **Wtotal_xwakes_recommented.txt**
+and **Wtotal_pyheadtail_recommended.txt** in Wakes/Total with the following elements described here, considering the optimized version of the kickers, without the vacuum flanges and electromagnetic separator.
+
+While the **Wtotal_pyheadtail_all.txt** or **Wtotal_xwakes_all.txt** is the same but only without the vacuum flanges.
+
+While the **Wtotal_pyheadtail_noRF_noEMS.txt** or **Wtotal_xwakes_noRF_noEMS.txt** is the same but  without the vacuum flanges, RF and electromagnetic separator.
+
 **Description:**  
 This file summarizes the components included in the FCC-ee impedance and wakefield model used in the 2026 version of the FCC_ee_IW model. The elements listed here represent the main impedance contributors. Wake and impedance calculations were performed using **CST Studio Suite**, **IW2D**, **ABCI**, and analytical formulas where applicable.
 
@@ -120,15 +127,24 @@ Simulation files/Stripline_kickers/
 <summary>8. Injection and Extraction Kickers</summary>
 
 ### Injection and Extraction Kickers
+Non optimized version, named Z_*kickers in repository:
+    - **Total length:** 40 m  
+    - **Description:** FCC kickers system based on window frame magnet design without shielding of the ferrite.  
+    - **Simulation method:** Analytical formula  
+    - **Simulation input file:**
+    ```text
+    Simulation files/Injection_extraction_kickers/
+    ```
+    - **Notes:** The impedance contribution is preliminarly computed with an analytical model (Tsutsui formalism). A more detailed numerical model may be introduced in future releases.
 
-- **Total length:** 30 m  
-- **Description:** FCC kickers system based on window frame magnet design without shielding of the ferrite.  
-- **Simulation method:** Analytical formula  
-- **Simulation input file:**
-```text
-Simulation files/Injection_extraction_kickers/
-```
-- **Notes:** The impedance contribution is preliminarly computed with an analytical model (Tsutsui formalism). A more detailed numerical model may be introduced in future releases.
+Optimized version named Z_*kickers_opt in repository:
+    - **Total length:** 40 m  
+    - **Description:** FCC kickers system based on window frame magnet design with 1 micron shielding of the ferrite.
+    - **Simulation method:** 3D CST electromagnetic simulation
+    - **Simulation input file:**
+ 
+    - **Notes:**Simulations currently ongoing, the input file will be released soon.
+
 
 </details>
 

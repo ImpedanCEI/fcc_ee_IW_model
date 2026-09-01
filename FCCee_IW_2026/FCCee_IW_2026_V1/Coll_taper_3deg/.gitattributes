@@ -1,0 +1,5 @@
+Impedances/Devices/Z_dipx_optimizedKicker.txt filter=lfs diff=lfs merge=lfs -text
+Impedances/Devices/Z_dipy_optimizedKicker.txt filter=lfs diff=lfs merge=lfs -text
+Impedances/Devices/Z_long_optimizedKicker.txt filter=lfs diff=lfs merge=lfs -text
+Impedances/Devices/Z_quadx_optimizedKicker.txt filter=lfs diff=lfs merge=lfs -text
+Impedances/Devices/Z_quady_optimizedKicker.txt filter=lfs diff=lfs merge=lfs -text

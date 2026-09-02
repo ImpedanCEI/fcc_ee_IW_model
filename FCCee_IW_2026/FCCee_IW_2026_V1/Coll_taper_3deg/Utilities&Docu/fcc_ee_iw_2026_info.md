@@ -127,24 +127,26 @@ Simulation files/Stripline_kickers/
 <summary>8. Injection and Extraction Kickers</summary>
 
 ### Injection and Extraction Kickers
-Non optimized version, named Z_*kickers in repository:
-    - **Total length:** 40 m  
-    - **Description:** FCC kickers system based on window frame magnet design without shielding of the ferrite.  
-    - **Simulation method:** Analytical formula  
-    - **Simulation input file:**
-    ```text
-    Simulation files/Injection_extraction_kickers/
-    ```
 
-    **Notes:** The impedance contribution is preliminarly computed with an analytical model (Tsutsui formalism). A more detailed numerical model may be introduced in future releases.
+**Non-optimized version**, named `Z_*kickers` in the repository:
 
-Optimized version named Z_*kickers_opt in repository:
-    - **Total length:** 40 m  
-    - **Description:** FCC kickers system based on window frame magnet design with 1 micron  titanium coating of the ceramic chamber and eddy current shielding.
-    - **Simulation method:** 3D CST electromagnetic simulation
-    - **Simulation input file:**
- 
-    - **Notes:** Simulations currently ongoing, the input file will be released soon.
+* **Total length:** 40 m
+* **Description:** FCC kickers system based on a window-frame magnet design without shielding of the ferrite.
+* **Simulation method:** Analytical formula
+* **Simulation input file:**
+
+  ```text
+  Simulation files/Injection_extraction_kickers/
+  ```
+* **Notes:** The impedance contribution is preliminarily computed using an analytical model based on the Tsutsui formalism. A more detailed numerical model may be introduced in future releases.
+
+**Optimized version**, named `Z_*kickers_opt` in the repository:
+
+* **Total length:** 40 m
+* **Description:** FCC kickers system based on a window-frame magnet design with a 1 µm titanium coating on the ceramic chamber and eddy-current shielding.
+* **Simulation method:** 3D CST electromagnetic simulation
+* **Simulation input file:** *To be released soon.*
+* **Notes:** The impedance contribution is currently being evaluated using detailed 3D CST electromagnetic simulations. The simulations are being finalized,the corresponding input files will be released in a future update.
 
 
 </details>

@@ -135,15 +135,16 @@ Non optimized version, named Z_*kickers in repository:
     ```text
     Simulation files/Injection_extraction_kickers/
     ```
-    - **Notes:** The impedance contribution is preliminarly computed with an analytical model (Tsutsui formalism). A more detailed numerical model may be introduced in future releases.
+
+    **Notes:** The impedance contribution is preliminarly computed with an analytical model (Tsutsui formalism). A more detailed numerical model may be introduced in future releases.
 
 Optimized version named Z_*kickers_opt in repository:
     - **Total length:** 40 m  
-    - **Description:** FCC kickers system based on window frame magnet design with 1 micron shielding of the ferrite.
+    - **Description:** FCC kickers system based on window frame magnet design with 1 micron  titanium coating of the ceramic chamber and eddy current shielding.
     - **Simulation method:** 3D CST electromagnetic simulation
     - **Simulation input file:**
  
-    - **Notes:**Simulations currently ongoing, the input file will be released soon.
+    - **Notes:** Simulations currently ongoing, the input file will be released soon.
 
 
 </details>
@@ -207,7 +208,7 @@ Simulation files/Interaction_region/
 | Collimators                     | 13                             | Analytics + IW2D        |
 | Beam Pipe                       | 90,658.5 m                     | IW2D + CST              |
 | Stripline Kickers               | 12                             | CST                     |
-| Injection / Extraction Kickers  | 38 m                           | Analytical              |
+| Injection / Extraction Kickers  | 40 m                           |  Analytical/CST         |
 | SR Absorbers                    | 13,152                         | CST                     |
 | Vacuum Flanges                  | 13,152                         | CST                     |
 | Interconnecting Modules         | 4,384                          | CST                     |

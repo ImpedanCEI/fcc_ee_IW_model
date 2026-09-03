@@ -7,12 +7,27 @@
 **Folder:** `FCC_ee_IW_2026_V1`   
 **Optics considered:** `LCCv106`
 
-**Important** : the recommended version of the wake file to be used for beam dynamics simulations is the **Wtotal_xwakes_recommented.txt**
-and **Wtotal_pyheadtail_recommended.txt** in Wakes/Total with the following elements described here, considering the optimized version of the kickers, without the vacuum flanges and electromagnetic separator.
+**Important:** The recommended wake files for beam-dynamics simulations are:
 
-While the **Wtotal_pyheadtail_all.txt** or **Wtotal_xwakes_all.txt** is the same but only without the vacuum flanges.
+* **`Wtotal_xwakes_recommended.txt`**
+* **`Wtotal_pyheadtail_recommended.txt`**
 
-While the **Wtotal_pyheadtail_noRF_noEMS.txt** or **Wtotal_xwakes_noRF_noEMS.txt** is the same but  without the vacuum flanges, RF and electromagnetic separator.
+located in *`Wakes/Total/`*.
+
+These files contain the wake contributions from **all devices included in the model**, as described in the following sections, using the **optimized kicker** version. The **vacuum flanges** and **electromagnetic separator (EMS)** are excluded.
+
+For completeness, two additional total wake files are provided:
+
+* **`Wtotal_xwakes_all.txt`** / **`Wtotal_pyheadtail_all.txt`**
+  These contain the **same device contributions as the recommended version**, but with the **EMS included**. The **vacuum flanges remain excluded**.
+
+* **`Wtotal_xwakes_noRF_noEMS.txt`** / **`Wtotal_pyheadtail_noRF_noEMS.txt`**
+  These contain the **same device contributions as the recommended version**, but with the **RF cavities** and the **EMS excluded**. The **vacuum flanges remain excluded**.
+
+In all three configurations, the **optimized kicker** impedance/wake contribution is used.
+
+The same configurations and naming convention apply to the corresponding impedance files located in *`Impedances/Total/`*.
+
 
 **Description:**  
 This file summarizes the components included in the FCC-ee impedance and wakefield model used in the 2026 version of the FCC_ee_IW model. The elements listed here represent the main impedance contributors. Wake and impedance calculations were performed using **CST Studio Suite**, **IW2D**, **ABCI**, and analytical formulas where applicable.
@@ -82,7 +97,8 @@ Simulation files/Bellows/Interconnect_LoopedRFFingers_oval_long.cst
 - **Number of elements:** 40 collimators  
 - **Description:** Beam protection devices designed to intercept halo particles and protect sensitive machine components.
 - **Simulation methods:** 3D CST electromagnetic simulation   
-- **Notes:** Primary, secondary tertiary and SR collimators included from last version with LCC106 optics (see [here](https://indico.cern.ch/event/1552126/contributions/7132598/attachments/3291994/5886565/FCCweek2026_GB.pdf)). Taper angle: 3° and Collimator lenght of 3 cm.
+- **Notes:** Primary, secondary tertiary and SR collimators included from last version with LCC106 optics (see [here](https://indico.cern.ch/event/1552126/contributions/7132598/attachments/3291994/5886565/FCCweek2026_GB.pdf)). Taper angle: 3° and Collimator lenght of 3 cm. More info about the collimator materials can be found [here] (https://indico.cern.ch/event/1604870/contributions/6763283/attachments/3175979/5648123/251118_Update_Collimators_Impedance_Studies_Gibellieri.pdf)
+
 </details>
 
 <details>

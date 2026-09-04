@@ -16,11 +16,11 @@ from matplotlib.ticker import LogLocator
 # DEFAULT DEVICE INFORMATION
 # ============================================================
 
-DEVICE_ORDER = ["optimizedKicker","coll3cm","pipe_rw","SRabs","ems","stripkickers26","IR","flanges","int_mod","bpm","RF"]
+DEVICE_ORDER = ["coll3cm","pipe_rw","optimizedKicker","SRabs","ems","stripkickers26","IR","flanges","int_mod","bpm","RF"]
 
-DEVICE_LABELS = ["optimized kickers","collimators","beam pipe RW","SR abs.","ems","strip. kickers","IR","flanges","int. mod","bpm","RF",]
+DEVICE_LABELS = ["collimators","beam pipe RW","optimized kickers","SR abs.","ems","strip. kickers","IR","flanges","int. mod","bpm","RF",]
 
-DEVICE_COLORS = ["purple","orange","blue","limegreen","steelblue","salmon","cyan","magenta","yellow","brown","gray",]
+DEVICE_COLORS = ["orange","blue","purple","limegreen","steelblue","salmon","cyan","magenta","yellow","brown","gray",]
 
 
 # ============================================================

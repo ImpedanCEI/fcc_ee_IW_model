@@ -223,7 +223,7 @@ Simulation files/Interaction_region/
 | BPMs                            | 2,200                          | CST                     |
 | RF Cavities + Tapers            | 33 cryo-modules                | CST                     |
 | Int. modules                    | 4384                           | CST                     |
-| Collimators                     | 13                             | Analytics + IW2D        |
+| Collimators                     | 13                             |CST                      |
 | Beam Pipe                       | 90,658.5 m                     | IW2D + CST              |
 | Stripline Kickers               | 12                             | CST                     |
 | Injection / Extraction Kickers  | 40 m                           |  Analytical/CST         |

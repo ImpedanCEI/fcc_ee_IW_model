@@ -21,8 +21,8 @@ For completeness, two additional total wake files are provided:
 * **`Wtotal_xwakes_all.txt`** / **`Wtotal_pyheadtail_all.txt`**
   These contain the **same device contributions as the recommended version**, but with the **EMS included**. The **vacuum flanges remain excluded**.
 
-* **`Wtotal_xwakes_noRF_noEMS.txt`** / **`Wtotal_pyheadtail_noRF_noEMS.txt`**
-  These contain the **same device contributions as the recommended version**, but with the **RF cavities** and the **EMS excluded**. The **vacuum flanges remain excluded**.
+* **`Wtotal_xwakes__recommended_noRF.txt`** / **`Wtotal_pyheadtail__recommended_noRF.txt`**
+  These contain the **same device contributions as the recommended version**, but with the **RF cavities** **excluded** (The **vacuum flanges and EMS remain excluded**).
 
 In all three configurations, the **optimized kicker** impedance/wake contribution is used.
 
@@ -32,10 +32,6 @@ The same configurations and naming convention apply to the corresponding impedan
 **Description:**  
 This file summarizes the components included in the FCC-ee impedance and wakefield model used in the 2026 version of the FCC_ee_IW model. The elements listed here represent the main impedance contributors. Wake and impedance calculations were performed using **CST Studio Suite**, **IW2D**, **ABCI**, and analytical formulas where applicable.
 
-All CST simulation input files are stored in the repository folder:
-```bash
-Simulation files/
-```
 
 ---
 
@@ -81,10 +77,8 @@ Simulation files/RF_cavity/TwoCell_elliptical_L180mm_400MHz.cst
 - **Number of elements:** 4384 bellows units  
 - **Description:** Compensate for thermal expansion and mechanical tolerances in the vacuum chamber. 
 - **Simulation method:** 3D CST electromagnetic simulation  
-- **Simulation input file:**
-```text
-Simulation files/Bellows/Interconnect_LoopedRFFingers_oval_long.cst
-```
+- **Simulation input file:** *To be redesigned.*
+
 - **Notes:** Updated model w.r.t the IW_2026_V0 version from vacuum, more details by P. Krkotic [here](https://indico.cern.ch/event/1552126/timetable/#79-impedance-considerations-fo).
 
 </details>
@@ -97,7 +91,7 @@ Simulation files/Bellows/Interconnect_LoopedRFFingers_oval_long.cst
 - **Number of elements:** 40 collimators  
 - **Description:** Beam protection devices designed to intercept halo particles and protect sensitive machine components.
 - **Simulation methods:** 3D CST electromagnetic simulation   
-- **Notes:** Primary, secondary tertiary and SR collimators included from last version with LCC106 optics (see [here](https://indico.cern.ch/event/1552126/contributions/7132598/attachments/3291994/5886565/FCCweek2026_GB.pdf)). Taper angle: 3° and Collimator lenght of 3 cm. More info about the collimator materials can be found [here] (https://indico.cern.ch/event/1604870/contributions/6763283/attachments/3175979/5648123/251118_Update_Collimators_Impedance_Studies_Gibellieri.pdf)
+- **Notes:** Primary, secondary, tertiary and synchrotron radiation collimators included from last version with LCC106 optics (see [here](https://indico.cern.ch/event/1552126/contributions/7132598/attachments/3291994/5886565/FCCweek2026_GB.pdf)). Taper angle: 3° and Collimator lenght of 3 cm. More info about the collimator materials can be found [here] (https://indico.cern.ch/event/1604870/contributions/6763283/attachments/3175979/5648123/251118_Update_Collimators_Impedance_Studies_Gibellieri.pdf)
 
 </details>
 
@@ -131,10 +125,8 @@ Simulation files/Beam_chamber/NoAbsorber_dipx.cst
 - **Description:** Stripline kicker impedance model. The model considers a half-aperture between electrodes of 26 mm.  
 - **Half-aperture between electrodes:** 26 mm  
 - **Simulation method:** 3D CST electromagnetic simulation  
-- **Simulation input file:**
-```text
-Simulation files/Stripline_kickers/
-```
+- **Simulation input file:** *To be released soon.*
+
 - **Notes:** Model with new electrodes aperture, see more [here ](https://indico.cern.ch/event/1552126/timetable/#300-rf-kicker-design-for-trans).
 
 </details>
@@ -191,10 +183,8 @@ Simulation files/SR_absorbers/SRA_40cm_long.cst
 - **Number of elements:** 13,140 vacuum flanges  
 - **Description:** Vacuum flanges used to connect vacuum chamber sections.  
 - **Simulation method:** 3D CST electromagnetic simulation  
-- **Simulation input file:**
-```text
-Simulation files/Vacuum_flanges/SMA_flange_02mm_gap_long.cst
-```
+- **Simulation input file:** *To be redesigned.*
+
 - **Notes:** Added as a new distributed impedance contributor in the 2026 model, see  [here](https://indico.cern.ch/event/1552126/timetable/#79-impedance-considerations-fo).
 
 

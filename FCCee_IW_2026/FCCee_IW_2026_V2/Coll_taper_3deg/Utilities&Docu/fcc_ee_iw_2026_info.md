@@ -1,0 +1,212 @@
+# FCC-ee Impedance Wake (IW) Model – 2026 Version
+
+![CST Simulation](https://img.shields.io/badge/CST-✅-green)
+![IW2D Simulation](https://img.shields.io/badge/IW2D-✅-green)
+![ABCI Simulation](https://img.shields.io/badge/ABCI-✅-green)
+
+**Folder:** `FCC_ee_IW_2026_V1`   
+**Optics considered:** `LCCv106`
+
+**Important:** The recommended wake files for beam-dynamics simulations are:
+
+* **`Wtotal_xwakes_recommended.txt`**
+* **`Wtotal_pyheadtail_recommended.txt`**
+
+located in *`Wakes/Total/`*.
+
+These files contain the wake contributions from **all devices included in the model**, as described in the following sections, using the **optimized kicker** version. The **vacuum flanges** and **electromagnetic separator (EMS)** are excluded.
+
+For completeness, two additional total wake files are provided:
+
+* **`Wtotal_xwakes_all.txt`** / **`Wtotal_pyheadtail_all.txt`**
+  These contain the **same device contributions as the recommended version**, but with the **EMS included**. The **vacuum flanges remain excluded**.
+
+* **`Wtotal_xwakes__recommended_noRF.txt`** / **`Wtotal_pyheadtail__recommended_noRF.txt`**
+  These contain the **same device contributions as the recommended version**, but with the **RF cavities** **excluded** (The **vacuum flanges and EMS remain excluded**).
+
+In all three configurations, the **optimized kicker** impedance/wake contribution is used.
+
+The same configurations and naming convention apply to the corresponding impedance files located in *`Impedances/Total/`*.
+
+
+**Description:**  
+This file summarizes the components included in the FCC-ee impedance and wakefield model used in the 2026 version of the FCC_ee_IW model. The elements listed here represent the main impedance contributors. Wake and impedance calculations were performed using **CST Studio Suite**, **IW2D**, **ABCI**, and analytical formulas where applicable.
+
+---
+
+## 📂 Model Components
+
+<details>
+<summary>1. Beam Position Monitors (BPMs)</summary>
+
+### Beam Position Monitors (BPMs)
+
+- **Number of elements:** 2220 arcs BPM  
+- **Description:** Distributed diagnostic devices used to measure transverse beam position along the ring.
+- **Simulation method:** 3D CST wakefield simulation 
+- **Simulation input file:**
+```text
+Simulation files/BPM/BPM_trapezoid_button_vacuum_seal_4mm.cst
+```
+- **Notes:** Design development ongoing (more [here](https://indico.cern.ch/event/1552126/timetable/#152-status-of-the-arc-bpm-desi)), new impedance release expected soon.
+
+</details>
+
+<details>
+<summary>2. RF Cavities</summary>
+
+### RF Cavities
+
+- **Number of elements:** 33 cryomodules  
+- **Description:** Each cryomodules is composed by 4 double-cell RF cavities operating at 400 MHz, for a total of 132 cavitites. The 2026 version includes a further improved RF cavity impedance model with modes considered up to 3 GHz.  
+- **Simulation method:** 3D CST wakefield and eigenmode simulations  
+- **Simulation input file:**
+```text
+Simulation files/RF_cavity/TwoCell_elliptical_L180mm_400MHz.cst
+```
+- **Notes:** Updated model w.r.t the IW_2026_V0 with simulations up to 3 GHz. To be refined. More detailed about current model [here ](https://indico.cern.ch/event/1552126/timetable/#285-studies-on-the-longitudina)
+
+</details>
+
+<details>
+<summary>3. Interconnecting modules</summary>
+
+### Interconnecting modules
+
+- **Number of elements:** 4384 bellows units  
+- **Description:** Compensate for thermal expansion and mechanical tolerances in the vacuum chamber. 
+- **Simulation method:** 3D CST electromagnetic simulation  
+- **Simulation input file:** *To be redesigned.*
+
+- **Notes:** Updated model w.r.t the IW_2026_V0 version from vacuum, more details by P. Krkotic [here](https://indico.cern.ch/event/1552126/timetable/#79-impedance-considerations-fo).
+
+</details>
+
+<details>
+<summary>4. Collimators</summary>
+
+### Collimators
+
+- **Number of elements:** 40 collimators  
+- **Description:** Beam protection devices designed to intercept halo particles and protect sensitive machine components.
+- **Simulation methods:** 3D CST electromagnetic simulation   
+- **Notes:** Primary, secondary, tertiary, synchrotron radiation and shower absorbers collimators included from last version with LCC106 optics (see [here](https://indico.cern.ch/event/1552126/contributions/7132598/attachments/3291994/5886565/FCCweek2026_GB.pdf)). Taper angle: 3° and Collimator lenght of 3 cm. More info about the collimator materials can be found [here] (https://indico.cern.ch/event/1604870/contributions/6763283/attachments/3175979/5648123/251118_Update_Collimators_Impedance_Studies_Gibellieri.pdf)
+
+</details>
+
+<details>
+<summary>5. Beam Pipe</summary>
+
+### Beam Pipe
+
+- **Geometry:** Circular beam pipe  
+- **Length:** 90,658.5 m  
+- **Radius:** 30 mm  
+- **Material:** 2 mm thick Copper  
+- **Coating:** 150 nm NEG (Non-Evaporable Getter) layer  
+- **Description:** Baseline vacuum chamber geometry throughout most of the machine.   
+- **Simulation method:** IW2D calculations for round chamber combined with numerical form factors from CST to account for winglets ([PyWIT repo](https://github.com/your-repo/PyWIT))  
+- **Simulation input files:**
+```text
+Simulation files/Beam_chamber/RoundPipe_dipx.cst
+Simulation files/Beam_chamber/NoAbsorber_dipx.cst
+```
+- **Notes:** Includes both driving and detuning wakefield contributions, taking into account realistic vacuum chamber geometry.
+
+</details>
+
+<details>
+<summary>7. Stripline Kickers</summary>
+
+### Stripline Kickers
+
+- **Number of elements:** 12 stripline kickers  
+- **Description:** Stripline kickers for depolarizer and feedback system. The model considers a half-aperture between electrodes of 26 mm.  
+- **Simulation method:** 3D CST electromagnetic simulation  
+- **Simulation input file:** *To be released soon.*
+
+- **Notes:** Model for 25 ns filling scheme, see more [here ](https://indico.cern.ch/event/1552126/timetable/#300-rf-kicker-design-for-trans).
+
+</details>
+
+<details>
+<summary>8. Injection and Extraction Kickers</summary>
+
+### Injection and Extraction Kickers
+
+**Optimized version**, named `Z_*optimizedkicker` in the repository:
+
+* **Total length:** 20 m (reduced length w.r.t. V1)
+* **Description:** FCC kickers system based on a window-frame magnet design with a 1 µm titanium coating on the ceramic chamber and eddy-current shielding.
+* **Simulation method:** 3D CST electromagnetic simulation
+* **Simulation input file:** *To be released soon.*
+* **Notes:** It is the most optimized version at the current stage.
+
+
+</details>
+
+<details>
+<summary>9. Synchrotron Radiation Absorbers</summary>
+
+### Synchrotron Radiation Absorbers
+
+- **Number of elements:** 13,140 SR absorbers  
+- **Description:** Synchrotron radiation absorbers distributed around the ring. 
+- **Simulation method:** 3D CST electromagnetic simulation  
+- **Simulation input file:**
+```text
+Simulation files/SR_absorbers/SRA_40cm_long.cst
+```
+- **Notes:** Added as a new impedance contributor in the 2026 model, see more [here](https://indico.cern.ch/event/1552126/timetable/#79-impedance-considerations-fo).
+
+</details>
+
+<details>
+<summary>10. Vacuum Flanges</summary>
+
+### Vacuum Flanges
+
+- **Number of elements:** 13,140 vacuum flanges  
+- **Description:** Vacuum flanges used to connect vacuum chamber sections.  
+- **Simulation method:** 3D CST electromagnetic simulation  
+- **Simulation input file:** *To be redesigned.*
+
+- **Notes:** Added as a new distributed impedance contributor in the 2026 model, see  [here](https://indico.cern.ch/event/1552126/timetable/#79-impedance-considerations-fo).
+
+
+<details>
+<summary>12. Interaction Region (IR)</summary>
+
+### Interaction Region (IR)
+
+- **Number of elements:** 4 interaction regions  
+- **Description:** Interaction region impedance contribution, considered four times to account for the four FCC-ee experimental regions.  
+- **Simulation method:** 3D CST electromagnetic simulation  
+- **Simulation input file:**
+```text
+Simulation files/Interaction_region/
+```
+- **Notes:** Model based on the development of a preliminary design which features: central beam pipe, ellipto-conical chamber, Y chamber and lateral chamber with two 2 SR masks. See more [here](https://indico.cern.ch/event/1552126/timetable/#249-interaction-region-impedan).
+
+</details>
+
+---
+
+## 📝 Summary Table
+
+| Component                       | Number / Length                | Simulation Method       |
+|---------------------------------|--------------------------------|-------------------------|
+| BPMs                            | 2,200                          | CST                     |
+| RF Cavities + Tapers            | 33 cryo-modules                | CST                     |
+| Int. modules                    | 4384                           | CST                     |
+| Collimators                     | 13                             | CST                     |
+| Beam Pipe                       | 90,658.5 m                     | IW2D + CST              |
+| Stripline Kickers               | 12                             | CST                     |
+| Injection / Extraction Kickers  | 20 m                           | CST                     |
+| SR Absorbers                    | 13,152                         | CST                     |
+| Vacuum Flanges                  | 13,152                         | CST                     |
+| Interconnecting Modules         | 4,384                          | CST                     |
+| Interaction Region (IR)         | 4                              | CST                     |
+
+---
+

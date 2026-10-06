@@ -50,42 +50,39 @@ def set_plot_style(font_size=16):
 # READ DEVICE IMPEDANCES
 # ============================================================
 
-def read_impedance_devices(folder, plane):
+def read_impedance_devices(folder, plane, freq_grid=None):
     """
     Read all device impedance files for a given plane.
 
     Expected filenames:
-        Z_dipx_*.txt
-        Z_dipy_*.txt
-        Z_long_*.txt
-        Z_quadx_*.txt
-        Z_quady_*.txt
+        Z_dipx_*.txt, Z_dipy_*.txt, Z_long_*.txt, Z_quadx_*.txt, Z_quady_*.txt
+
+    Devices may have different frequency ranges, as long as they share
+    the same sampling on their common range (e.g. most devices stop at
+    50 GHz and one continues to 200 GHz).
+
+    All devices are put on ONE common grid:
+      - freq_grid=None : the longest grid found among the files of this plane
+      - freq_grid=array: the grid you pass (use it to have all planes on
+                         the same grid, e.g. the one returned for "long")
+
+    A device that stops before the end of the grid is padded with ZERO
+    impedance above its last frequency. A device that goes beyond the end
+    of the grid is truncated.
 
     Parameters
     ----------
     folder : str or Path
-        Folder containing the impedance files.
-
-    plane : str
-        One of:
-            'dipx'
-            'dipy'
-            'long'
-            'quadx'
-            'quady'
+    plane : 'dipx', 'dipy', 'long', 'quadx' or 'quady'
+    freq_grid : ndarray, optional
+        Common frequency grid [GHz].
 
     Returns
     -------
     freq : ndarray
-        Frequency grid.
-
+        Common frequency grid.
     devices : dict
-        Dictionary containing complex impedance arrays.
-
-        Example:
-            devices["kickers"]
-            devices["bpm"]
-            devices["RF"]
+        Complex impedance arrays, all of length len(freq).
     """
 
     folder = Path(folder)
@@ -111,36 +108,57 @@ def read_impedance_devices(folder, plane):
             f"{folder.resolve()}"
         )
 
-    freq_ref = None
-    devices = {}
+    # --------------------------------------------------------
+    # Read every file on its own grid
+    # --------------------------------------------------------
+    raw = {}
 
     for f in files:
-
         data = np.loadtxt(f, comments="#")
-
-        freq = data[:, 0]
-        Z = data[:, 1] + 1j * data[:, 2]
-
-        # Example:
-        # Z_dipx_bpm.txt -> bpm
         name = f.stem.replace(f"Z_{plane}_", "")
+        raw[name] = (data[:, 0], data[:, 1] + 1j * data[:, 2])
 
-        devices[name] = Z
+    # --------------------------------------------------------
+    # Common grid: given by the user or the longest one
+    # --------------------------------------------------------
+    if freq_grid is None:
+        freq_grid = max((fr for fr, _ in raw.values()), key=len)
 
-        if freq_ref is None:
-            freq_ref = freq
+    freq_grid = np.asarray(freq_grid, dtype=float)
+    n_grid = len(freq_grid)
 
-        else:
-            if (
-                len(freq) != len(freq_ref)
-                or not np.allclose(freq, freq_ref)
-            ):
-                raise ValueError(
-                    f"Frequency grid mismatch in file '{f.name}'.\n"
-                    "All device files must have the same frequency grid."
-                )
+    # --------------------------------------------------------
+    # Put every device on the common grid
+    # --------------------------------------------------------
+    devices = {}
 
-    return freq_ref, devices
+    for name, (freq, Z) in raw.items():
+
+        m = min(len(freq), n_grid)
+
+        if not np.allclose(freq[:m], freq_grid[:m]):
+            raise ValueError(
+                f"Frequency grid mismatch for device '{name}' ({plane}).\n"
+                "Devices must have the same sampling on their common "
+                "frequency range."
+            )
+
+        Z_common = np.zeros(n_grid, dtype=complex)
+        Z_common[:m] = Z[:m]
+        devices[name] = Z_common
+
+        if len(freq) < n_grid:
+            print(
+                f"  NOTE: '{name}' stops at {freq[-1]:.4g} GHz -> "
+                f"zero impedance up to {freq_grid[-1]:.4g} GHz"
+            )
+        elif len(freq) > n_grid:
+            print(
+                f"  NOTE: '{name}' truncated at {freq_grid[-1]:.4g} GHz "
+                f"(file goes to {freq[-1]:.4g} GHz)"
+            )
+
+    return freq_grid, devices
 # ============================================================
 # GET DEVICE CONTRIBUTIONS
 # ============================================================
@@ -1193,4 +1211,3 @@ def plot_total_impedance(
         plt.show()
     else:
         plt.close(fig)
-

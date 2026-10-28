@@ -111,6 +111,10 @@ Simulation files/RF_cavity/TwoCell_elliptical_L180mm_400MHz.cst
 Simulation files/Beam_chamber/RoundPipe_dipx.cst
 Simulation files/Beam_chamber/NoAbsorber_dipx.cst
 ```
+- **Surface roughness:** Impedance and wake data including surface roughness are available, based on a preliminary roughness model using the gradient model.  
+  An RMS roughness (Rq) of 0.3 µm is assumed, to be confirmed by future measurements.  
+  Files: `Z_*_rw_Rq03` (impedances) and `W_pipe_RW_Rq03.txt` (wake).
+
 - **Notes:** Includes both driving and detuning wakefield contributions, taking into account realistic vacuum chamber geometry.
 
 </details>

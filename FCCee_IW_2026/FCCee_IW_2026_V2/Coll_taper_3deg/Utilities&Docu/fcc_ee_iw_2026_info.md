@@ -38,7 +38,7 @@ For completeness, additional total wake files are provided, **each in two versio
 | Configuration | Collimators optimized (`collSA3cmOpt`) | Collimators not optimized (`collSA3cm`) |
 |---------------|----------------------------------------|-----------------------------------------|
 | Recommended   | **recommended1**                       | **recommended2**                        |
-| All (EMS included) | **all1**                          | **all2**                                |
+| All           | **all1**                               | **all2**                                |
 | No RF         | **recommended1_noRF**                  | **recommended2_noRF**                   |
 
 In all configurations, the **optimized kicker** impedance/wake contribution, the **beam pipe with roughness** and the **beam instrumentation** are used.
@@ -47,7 +47,7 @@ The same configurations and naming convention apply to the corresponding impedan
 
 
 **Description:**  
-This file summarizes the components included in the FCC-ee impedance and wakefield model used in the 2026 version of the FCC_ee_IW model. The elements listed here represent the main impedance contributors. Wake and impedance calculations were performed using **CST Studio Suite**, **IW2D**, **ABCI**, and analytical formulas where applicable.
+This file summarizes the components included in the FCC-ee impedance and wakefield model used in the 2026 version of the FCC_ee_IW model. Wake and impedance calculations were performed using **CST Studio Suite**, **IW2D**, **ABCI**, and analytical formulas where applicable.
 
 ---
 
